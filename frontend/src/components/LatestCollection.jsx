@@ -1,37 +1,29 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { ShopContext } from '../context/ShopContext'
-import ProductItem from './ProductItem'
-import TypingEffect from 'react-typing-effect'
+import React, { useContext, useEffect, useState } from 'react';
+import { ShopContext } from '../context/ShopContext';
+import ProductItem from './ProductItem';
 
 const LatestCollection = () => {
-    const { products } = useContext(ShopContext)
-    const [latestProducts, setLatestProducts] = useState([])
+    const { products } = useContext(ShopContext);
+    const [latestProducts, setLatestProducts] = useState([]);
 
     useEffect(() => {
-        setLatestProducts(products.slice(0, 10))
-    }, [products])
+        setLatestProducts(products.slice(0, 10));
+    }, [products]);
 
     return (
         <div className='my-10'>
             <div className='text-center py-8 text-3xl'>
-                {/* Typing Effect for the Title */}
+                {/* Carousel Effect for the Title */}
                 <div className='flex flex-col items-center'>
-                    <TypingEffect
-                        text="LATEST"
-                        speed={100}
-                        eraseSpeed={50}
-                        eraseDelay={3000}
-                        typingDelay={200}
-                        className='font-bold text-4xl'
-                    />
-                    <TypingEffect
-                        text="COLLECTIONS"
-                        speed={100}
-                        eraseSpeed={50}
-                        eraseDelay={4000}
-                        typingDelay={1000}
-                        className='font-bold text-4xl'
-                    />
+                    <div className='latest-collection-carousel'>
+                        <div className='carousel-content' data-text="LATEST COLLECTIONS">
+                            <div className='carousel-item'>LATEST COLLECTIONS</div>
+                            <div className='carousel-item'>LATEST COLLECTIONS</div>
+                            <div className='carousel-item'>LATEST COLLECTIONS</div>
+                            <div className='carousel-item'>LATEST COLLECTIONS</div>
+                            <div className='carousel-item'>LATEST COLLECTIONS</div>
+                        </div>
+                    </div>
                 </div>
                 <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600 mt-4'>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.
@@ -45,7 +37,7 @@ const LatestCollection = () => {
                 ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default LatestCollection
+export default LatestCollection;
